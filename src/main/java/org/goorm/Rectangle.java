@@ -3,7 +3,15 @@ package org.goorm;
 import java.util.Scanner;
 
 public class Rectangle {
-    private static Double calculateExtent(Double width, Double height) {
+    private final Double width;
+    private final Double height;
+
+    public Rectangle(Double width, Double height) {
+        this.width = width;
+        this.height = height;
+    }
+
+    public Double calculateExtent() {
         return width * height;
     }
 
@@ -14,7 +22,8 @@ public class Rectangle {
         String[] ary = line.split(" ");
         Double widthD = Double.parseDouble(ary[0]);
         Double heightD = Double.parseDouble(ary[1]);
-        System.out.println(calculateExtent(widthD, heightD));
+        Rectangle rectangle = new Rectangle(widthD, heightD);
+        System.out.println(rectangle.calculateExtent());
 
     }
 
